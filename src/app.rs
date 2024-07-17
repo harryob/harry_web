@@ -1,12 +1,7 @@
-use egui::{Align2, Color32, OpenUrl, Vec2};
+use egui::{Align2, Vec2};
 
+#[derive(Default)]
 pub struct HarryWeb {}
-
-impl Default for HarryWeb {
-    fn default() -> Self {
-        Self {}
-    }
-}
 
 impl HarryWeb {
     /// Called once before the first frame.
@@ -46,7 +41,7 @@ fn setup_font(ctx: &egui::Context) {
 impl eframe::App for HarryWeb {
     /// Called each time the UI needs repainting, which may be many times per second.
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
-        egui::CentralPanel::default().show(ctx, |ui| {});
+        egui::CentralPanel::default().show(ctx, |_ui| {});
         egui::Window::new("harry's site")
             .anchor(Align2::CENTER_CENTER, Vec2::new(0.0, -100.0))
             .pivot(Align2::CENTER_CENTER)
@@ -54,7 +49,7 @@ impl eframe::App for HarryWeb {
             .resizable(false)
             .collapsible(false)
             .show(ctx, |ui| {
-                ui.heading(format!("welcome to my little corner of the web"));
+                ui.heading("welcome to my little corner of the web");
             });
 
         egui::Window::new("discord")
